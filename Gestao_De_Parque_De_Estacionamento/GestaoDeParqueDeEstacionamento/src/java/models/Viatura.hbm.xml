@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/mai/2023 14:11:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="models.Viatura" table="viatura" catalog="parque_esta" optimistic-lock="version">
+        <id name="matricula" type="string">
+            <column name="matricula" length="8" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cliente" class="models.Cliente" fetch="select">
+            <column name="docNr" length="25" not-null="true" />
+        </many-to-one>
+        <property name="marca" type="int">
+            <column name="marca" not-null="true" />
+        </property>
+        <property name="modelo" type="int">
+            <column name="modelo" not-null="true" />
+        </property>
+        <property name="cor" type="int">
+            <column name="cor" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="10" not-null="true" />
+        </property>
+        <property name="dataRegisto" type="timestamp">
+            <column name="dataRegisto" length="19" not-null="true" />
+        </property>
+        <set name="pagamentos" table="pagamento" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="nrMatricula" length="8" not-null="true" />
+            </key>
+            <one-to-many class="models.Pagamento" />
+        </set>
+    </class>
+</hibernate-mapping>

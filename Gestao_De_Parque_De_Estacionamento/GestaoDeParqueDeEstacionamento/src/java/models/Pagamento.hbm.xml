@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/mai/2023 14:11:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="models.Pagamento" table="pagamento" catalog="parque_esta" optimistic-lock="version">
+        <id name="idPag" type="java.lang.Integer">
+            <column name="idPag" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="viatura" class="models.Viatura" fetch="select">
+            <column name="nrMatricula" length="8" not-null="true" />
+        </many-to-one>
+        <property name="dataPag" type="timestamp">
+            <column name="dataPag" length="19" not-null="true" />
+        </property>
+        <property name="nrDocCliente" type="string">
+            <column name="nrDocCliente" length="25" not-null="true" />
+        </property>
+        <property name="nomeCliente" type="string">
+            <column name="nomeCliente" length="15" not-null="true" />
+        </property>
+        <property name="diasParq" type="int">
+            <column name="diasParq" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
