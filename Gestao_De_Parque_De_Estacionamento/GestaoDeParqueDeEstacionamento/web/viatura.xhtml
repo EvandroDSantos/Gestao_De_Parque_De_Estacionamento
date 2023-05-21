@@ -43,20 +43,26 @@
                              selection="#{dtSelectionView.selectedProducts}" rowKey="#{product.id}"
                              style="margin-bottom:0" paginator="true" rows="5" selectionPageOnly="false">
                     <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
-                    <p:column headerText="Code">
+                    <p:column headerText="Marca">
                         <h:outputText value="#{product.code}" />
                     </p:column>
 
-                    <p:column headerText="Name">
+                    <p:column headerText="Modelo">
                         <h:outputText value="#{product.name}" />
                     </p:column>
 
-                    <p:column headerText="Category">
+                    <p:column headerText="Matricula">
                         <h:outputText value="#{product.category}" />
                     </p:column>
 
-                    <p:column headerText="Quantity">
+                    <p:column headerText="Cor">
                         <h:outputText value="#{product.quantity}" />
+                    </p:column>
+                    <p:column headerText="Status">
+                       <h:outputText value="#{product.quantity}" />
+                    </p:column>
+                    <p:column headerText="Data Registo">
+                       <h:outputText value="#{product.quantity}" />
                     </p:column>
                 </p:dataTable>
             </div>
