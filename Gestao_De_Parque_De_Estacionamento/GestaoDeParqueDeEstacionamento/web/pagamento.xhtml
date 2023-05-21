@@ -12,13 +12,30 @@
         <h:form>
             <h2>Pagamento</h2>
             <div class="card">
-                <h:form>
+                <h:form> 
+                    <h:panelGrid columns="4" cellpadding="15">
+                        <p:outputLabel value="Nr da Marticla"/>
+                        <p:selectOneMenu id="console" value="#{radioView.console}">
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Nome do Cliente:"/>
+                        <p:inputText value="" size="55"/>
+                        <p:outputLabel value="Nr do Documento"/>
+                        <p:inputText value="" size="55" />
 
+	        
+                    </h:panelGrid> 
+
+                    <h:panelGrid columns="4" cellpadding="10">
+                        <p:button value="Save" styleClass="ui-button-raised" icon="pi pi-save"/>
+                        <p:button value="Remover" styleClass="ui-button-raised ui-button-secondary" icon ="pi pi-trash" />
+                        <p:button value="Actualizar" styleClass="ui-button-raised ui-button-success" icon="pi pi-refresh" />
+                        <p:button value="Limpar" styleClass="ui-button-raised ui-button-info" icon="pi pi-eraser" />
+                    </h:panelGrid>
                 </h:form>
             </div>
             <div class="card">
                 
-                <p:dataTable id="checkboxDT" var="product" value="#{dtSelectionView.products6}"
+                <p:dataTable id="checkboxDTPagamento" var="product" value="#{dtSelectionView.products6}"
                              selection="#{dtSelectionView.selectedProducts}" rowKey="#{product.id}"
                              style="margin-bottom:0" paginator="true" rows="5" selectionPageOnly="false">
                     <p:column selectionMode="multiple" style="width:16px;text-align:center"/>

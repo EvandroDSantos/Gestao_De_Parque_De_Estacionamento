@@ -10,24 +10,24 @@
 
     <ui:define name="centro">
         <h:form>
-            <h2>Viatura</h2>
+            <h3>Dados da Viatura</h3>
             <div class="card">
                 <h:form>
- <h:panelGrid columns="4" cellpadding="15">
-	                <p:outputLabel value="Marca:"/>
-	                <p:inputText value="" size="55" placeholder="Ex: Mercedes Benz" />
+                    <h:panelGrid columns="4" cellpadding="15">
+                        <p:outputLabel value="Marca:"/>
+                        <p:inputText value="" size="55" placeholder="Ex: Mercedes Benz" />
                         <p:outputLabel value="Modelo:"/>
-	                <p:inputText value="" size="55" placeholder="Ex: AMG G63" />
-	                <p:outputLabel value="Matricula:"/>
-	                <p:inputText value="" size="55" placeholder=" AQJ 221 MC"/>
-	                <p:outputLabel value="Cor"/>
+                        <p:inputText value="" size="55" placeholder="Ex: AMG G63" />
+                        <p:outputLabel value="Matricula:"/>
+                        <p:inputText value="" size="55" placeholder=" AQJ 221 MC"/>
+                        <p:outputLabel value="Cor"/>
                         <p:inputText value="" size="55" placeholder="Azul Marinho" />
                         <p:outputLabel value="Status"/>
                         <p:selectOneRadio id="console" value="#{radioView.console}">
                         <f:selectItem itemLabel="Activo" itemValue="Option1"/>
                         <f:selectItem itemLabel="Inactivo" itemValue="Option2"/>
                         </p:selectOneRadio>	        
- </h:panelGrid> 
+                    </h:panelGrid> 
                     
                     <h:panelGrid columns="4" cellpadding="10">
                         <p:button value="Save" styleClass="ui-button-raised" icon="pi pi-save"/>
@@ -39,7 +39,7 @@
                 </h:form>
             </div>
             <div class="card">
-                <p:dataTable id="checkboxDT" var="product" value="#{dtSelectionView.products6}"
+                <p:dataTable id="checkboxDTViatura" var="product" value="#{dtSelectionView.products6}"
                              selection="#{dtSelectionView.selectedProducts}" rowKey="#{product.id}"
                              style="margin-bottom:0" paginator="true" rows="5" selectionPageOnly="false">
                     <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
