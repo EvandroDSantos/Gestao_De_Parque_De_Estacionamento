@@ -13,7 +13,29 @@
             <h2>Viatura</h2>
             <div class="card">
                 <h:form>
-
+ <h:panelGrid columns="4" cellpadding="15">
+	                <p:outputLabel value="Marca:"/>
+	                <p:inputText value="" size="55" placeholder="Ex: Mercedes Benz" />
+                        <p:outputLabel value="Modelo:"/>
+	                <p:inputText value="" size="55" placeholder="Ex: AMG G63" />
+	                <p:outputLabel value="Matricula:"/>
+	                <p:inputText value="" size="55" placeholder=" AQJ 221 MC"/>
+	                <p:outputLabel value="Cor"/>
+                        <p:inputText value="" size="55" placeholder="Azul Marinho" />
+                        <p:outputLabel value="Status"/>
+                        <p:selectOneRadio id="console" value="#{radioView.console}">
+                        <f:selectItem itemLabel="Activo" itemValue="Option1"/>
+                        <f:selectItem itemLabel="Inactivo" itemValue="Option2"/>
+                        </p:selectOneRadio>	        
+ </h:panelGrid> 
+                    
+                    <h:panelGrid columns="4" cellpadding="10">
+                        <p:button value="Save" styleClass="ui-button-raised" icon="pi pi-save"/>
+                        <p:button value="Remover" styleClass="ui-button-raised ui-button-secondary" icon ="pi pi-trash" />
+                        <p:button value="Actualizar" styleClass="ui-button-raised ui-button-success" icon="pi pi-refresh" />
+                        <p:button value="Limpar" styleClass="ui-button-raised ui-button-info" icon="pi pi-eraser" />
+                    </h:panelGrid>
+                    
                 </h:form>
             </div>
             <div class="card">
