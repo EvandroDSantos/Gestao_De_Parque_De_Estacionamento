@@ -9,56 +9,75 @@
       template="forma.xhtml">
 
     <ui:define name="centro">
-        <h:form>   
+        <h:form id="frmCli">
             <div class="card">
-                <h:form>
-                    <h3>Dados do Cliente</h3>
-                    <h:panelGrid columns="4" cellpadding="15">
+                    
+                    <h:panelGrid id="pEntrada" columns="4" cellpadding="15">
+                        <h3>Dados do Cliente</h3>
+                        <h2></h2>
                         <p:outputLabel value="Nome:"/>
-                        <p:inputText value="" size="55" placeholder="Ex: Abdul" />
+                        <p:inputText value="#{clienteBean.cliente.nome}" size="55" placeholder="Ex: Abdul" requiredMessage="O Nome é Obrigatório" required="true" style="width: 12rem"/>
                         <p:outputLabel value="Apelido:"/>
-                        <p:inputText value="" size="55" placeholder="Ex: Arnaldo" />
+                        <p:inputText value="#{clienteBean.cliente.apelido}" size="55" placeholder="Ex: Arnaldo"/>
                         <p:outputLabel value="Email:"/>
-                        <p:inputText value="" size="55" placeholder="Ex: email@dominio.com.br"/>
+                        <p:inputText value="#{clienteBean.cliente.email}" size="55" placeholder="Ex: email@dominio.com.br"/>
                         <p:outputLabel value="Celular:"/>
-                        <p:inputMask mask="(258)99-9999-999" placeholder="Ex: (258) 84-9999-999" size="55"/>
+                        <p:inputMask value="#{clienteBean.cliente.contacto}" mask="(+258)99-9999-999" placeholder="Ex: (+258) 84-9999-999" />
                         <p:outputLabel value="Nr do BI"/>
-                        <p:inputText value="" size="55" placeholder="111111111111M" />
+                        <p:inputText value="#{clienteBean.cliente.nrDoc}" size="55" placeholder="111111111111M" maxlength="13"/>
                     <p:outputLabel value="Sexo"/>
-                    <p:selectOneRadio id="console" value="#{radioView.console}">
-                        <f:selectItem itemLabel="Masculino" itemValue="Option1"/>
-                        <f:selectItem itemLabel="Feminino" itemValue="Option2"/>
-                    </p:selectOneRadio>	        
+                    <p:selectOneRadio id="console" value="#{clienteBean.cliente.sexo}" >
+                        <f:selectItem itemLabel="Masculino" itemValue="M"/>
+                        <f:selectItem itemLabel="Feminino" itemValue="F"/>
+                    </p:selectOneRadio>
+                    <p:outputLabel value="Status"/>
+                    <p:selectOneRadio id="console1" value="#{clienteBean.cliente.status}">
+                        <f:selectItem itemLabel="Activo" itemValue="Activo" />
+                        <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
+                    </p:selectOneRadio>
                     </h:panelGrid> 
 
                     <h:panelGrid columns="4" cellpadding="10">
-                        <p:button value="Save" styleClass="ui-button-raised" icon="pi pi-save"/>
-                        <p:button value="Remover" styleClass="ui-button-raised ui-button-secondary" icon ="pi pi-trash" />
-                        <p:button value="Actualizar" styleClass="ui-button-raised ui-button-success" icon="pi pi-refresh" />
-                        <p:button value="Limpar" styleClass="ui-button-raised ui-button-info" icon="pi pi-eraser" />
+                        <p:commandButton value="Save" id="ajax" update=":frmCli:pEntrada" styleClass="ui-button-raised" icon="pi pi-save" actionListener="#{clienteBean.cadastro()}"/>
+                        <p:commandButton value="Remover" styleClass="ui-button-raised ui-button-secondary" icon ="pi pi-trash" />
+                        <p:commandButton value="Actualizar" styleClass="ui-button-raised ui-button-success" icon="pi pi-refresh" />
+                        <p:commandButton value="Limpar" styleClass="ui-button-raised ui-button-info" icon="pi pi-eraser" />
                     </h:panelGrid>
-
-                </h:form>
+                    
             </div>
+        </h:form>
+        <h:form>   
             <div class="card">
-                <p:dataTable id="checkboxDTCliente" var="product" value="#{dtSelectionView.products6}"
-                                 selection="#{dtSelectionView.selectedProducts}" rowKey="#{product.id}"
-                                 style="margin-bottom:0" paginator="true" rows="5" selectionPageOnly="false">
-                        <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
-                        <p:column headerText="Code">
-                            <h:outputText value="#{product.code}" />
+                <p:dataTable id="checkboxDTCliente" var="a" value="#{clienteBean.listaCliente}"
+                             selection="#{dtSelectionView.selectedProducts}" rowKey="#{a.nrDoc}"
+                             style="margin-bottom:0" paginator="true" rows="5" selectionPageOnly="false">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                        <p:column headerText="Nr do Documento">
+                            <h:outputText value="#{a.nrDoc}" />
                         </p:column>
 
-                        <p:column headerText="Name">
-                            <h:outputText value="#{product.name}" />
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{a.nome}" />
                         </p:column>
 
-                        <p:column headerText="Category">
-                            <h:outputText value="#{product.category}" />
+                        <p:column headerText="Apelido">
+                            <h:outputText value="#{a.apelido}" />
                         </p:column>
 
-                        <p:column headerText="Quantity">
-                            <h:outputText value="#{product.quantity}" />
+                        <p:column headerText="Sexo">
+                            <h:outputText value="#{a.sexo}" />
+                        </p:column>
+                        
+                        <p:column headerText="Contacto">
+                            <h:outputText value="#{a.contacto}" />
+                        </p:column>
+                        
+                        <p:column headerText="Email">
+                            <h:outputText value="#{a.email}" />
+                        </p:column>
+                        
+                        <p:column headerText="Status">
+                            <h:outputText value="#{a.status}" />
                         </p:column>
                     </p:dataTable>
             </div>

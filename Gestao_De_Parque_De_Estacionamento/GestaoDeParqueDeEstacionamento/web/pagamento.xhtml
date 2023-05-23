@@ -15,7 +15,8 @@
                 <h:form> 
                     <h:panelGrid columns="4" cellpadding="15">
                         <p:outputLabel value="Nr da Marticla"/>
-                        <p:selectOneMenu id="console" value="#{radioView.console}">
+                        <p:selectOneMenu id="console" value="#{radioView.console}" >
+                            <f:selectItem itemValue="Selecione..."/>
                         </p:selectOneMenu>
                         <p:outputLabel value="Nome do Cliente:"/>
                         <p:inputText value="" size="55"/>
@@ -26,10 +27,10 @@
                     </h:panelGrid> 
 
                     <h:panelGrid columns="4" cellpadding="10">
-                        <p:button value="Save" styleClass="ui-button-raised" icon="pi pi-save"/>
-                        <p:button value="Remover" styleClass="ui-button-raised ui-button-secondary" icon ="pi pi-trash" />
-                        <p:button value="Actualizar" styleClass="ui-button-raised ui-button-success" icon="pi pi-refresh" />
-                        <p:button value="Limpar" styleClass="ui-button-raised ui-button-info" icon="pi pi-eraser" />
+                        <p:commandButton value="Save" styleClass="ui-button-raised" icon="pi pi-save"/>
+                        <p:commandButton value="Remover" styleClass="ui-button-raised ui-button-secondary" icon ="pi pi-trash" />
+                        <p:commandButton value="Actualizar" styleClass="ui-button-raised ui-button-success" icon="pi pi-refresh" />
+                        <p:commandButton value="Limpar" styleClass="ui-button-raised ui-button-info" icon="pi pi-eraser" />
                     </h:panelGrid>
                 </h:form>
             </div>

@@ -14,9 +14,9 @@ public class Viatura  implements java.io.Serializable {
 
      private String matricula;
      private Cliente cliente;
-     private int marca;
-     private int modelo;
-     private int cor;
+     private String marca;
+     private String modelo;
+     private String cor;
      private String status;
      private Date dataRegisto;
      private Set pagamentos = new HashSet(0);
@@ -25,7 +25,7 @@ public class Viatura  implements java.io.Serializable {
     }
 
 	
-    public Viatura(String matricula, Cliente cliente, int marca, int modelo, int cor, String status, Date dataRegisto) {
+    public Viatura(String matricula, Cliente cliente, String marca, String modelo, String cor, String status, Date dataRegisto) {
         this.matricula = matricula;
         this.cliente = cliente;
         this.marca = marca;
@@ -34,7 +34,7 @@ public class Viatura  implements java.io.Serializable {
         this.status = status;
         this.dataRegisto = dataRegisto;
     }
-    public Viatura(String matricula, Cliente cliente, int marca, int modelo, int cor, String status, Date dataRegisto, Set pagamentos) {
+    public Viatura(String matricula, Cliente cliente, String marca, String modelo, String cor, String status, Date dataRegisto, Set pagamentos) {
        this.matricula = matricula;
        this.cliente = cliente;
        this.marca = marca;
@@ -59,25 +59,25 @@ public class Viatura  implements java.io.Serializable {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    public int getMarca() {
+    public String getMarca() {
         return this.marca;
     }
     
-    public void setMarca(int marca) {
+    public void setMarca(String marca) {
         this.marca = marca;
     }
-    public int getModelo() {
+    public String getModelo() {
         return this.modelo;
     }
     
-    public void setModelo(int modelo) {
+    public void setModelo(String modelo) {
         this.modelo = modelo;
     }
-    public int getCor() {
+    public String getCor() {
         return this.cor;
     }
     
-    public void setCor(int cor) {
+    public void setCor(String cor) {
         this.cor = cor;
     }
     public String getStatus() {
@@ -101,10 +101,6 @@ public class Viatura  implements java.io.Serializable {
     public void setPagamentos(Set pagamentos) {
         this.pagamentos = pagamentos;
     }
-
-
-
-
 }
 
 

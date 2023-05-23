@@ -27,7 +27,7 @@ public class ClienteCtr {
         
         try {
             tr = sessao.beginTransaction();
-            sessao.saveOrUpdate(c);
+            sessao.save(c);
 
             tr.commit();
         } catch (Exception el) {

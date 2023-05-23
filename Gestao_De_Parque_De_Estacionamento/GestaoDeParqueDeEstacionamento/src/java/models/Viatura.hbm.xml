@@ -11,13 +11,13 @@
         <many-to-one name="cliente" class="models.Cliente" fetch="select">
             <column name="docNr" length="25" not-null="true" />
         </many-to-one>
-        <property name="marca" type="int">
+        <property name="marca" type="string">
             <column name="marca" not-null="true" />
         </property>
-        <property name="modelo" type="int">
+        <property name="modelo" type="string">
             <column name="modelo" not-null="true" />
         </property>
-        <property name="cor" type="int">
+        <property name="cor" type="string">
             <column name="cor" not-null="true" />
         </property>
         <property name="status" type="string">

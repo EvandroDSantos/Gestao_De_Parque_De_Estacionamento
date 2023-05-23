@@ -17,7 +17,7 @@
         <property name="sexo" type="char">
             <column name="sexo" length="1" not-null="true" />
         </property>
-        <property name="contacto" type="int">
+        <property name="contacto" type="string">
             <column name="contacto" not-null="true" />
         </property>
         <property name="email" type="string">
