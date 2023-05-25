@@ -15,6 +15,7 @@ import javax.faces.bean.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import org.primefaces.event.SelectEvent;
 
 /**
  *
@@ -65,8 +66,59 @@ public class ClienteBean{
     }
     
     
-    public void cadastro(){ 
-        cCtr.Inserir(cliente);
-        cliente = new Cliente();
+    //CRUD
+    public void cadastro(){
+        
+        try {
+                this.cCtr.Inserir(cliente);
+                limpar();
+                addMessage("Confirmed", "You have accepted");
+        } catch (Exception e) {
+            
+             addMessage("Error", "Impossivel Salvar o Cliente "+e.getMessage());
+            e.printStackTrace();
+        }
+
+
+    }
+    
+    public void remover(){
+        
+
+        try {
+                this.cCtr.delete(cliente);
+                this.limpar();
+                addMessage("Confirmed", "Record deleted");
+        } catch (Exception e) {
+            
+             addMessage("Error", "Impossivel Deletar o Cliente "+e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void update(){   
+        try {
+                this.cCtr.update(cliente);
+                this.limpar();
+                addMessage("Confirmed", "Record Updated");
+        } catch (Exception e) {
+            
+             addMessage("Error", "Impossivel Actualizar o Cliente "+e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    public void limpar(){
+        this.cliente = new Cliente();
+    }
+    
+    public void editar(){}
+    
+    
+    //Confirmacao 
+
+    public void addMessage(String summary, String detail) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+        FacesContext.getCurrentInstance().addMessage(null, message);
     }
 }

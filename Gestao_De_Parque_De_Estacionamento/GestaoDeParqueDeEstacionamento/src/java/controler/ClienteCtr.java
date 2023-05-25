@@ -49,8 +49,8 @@ public class ClienteCtr {
 
             tr.commit();
 
-        } catch (Exception el) {
-            el.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             tr.rollback();
         }  
     }
@@ -67,8 +67,8 @@ public class ClienteCtr {
 
             tr.commit();
 
-        } catch (Exception el) {
-            el.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             tr.rollback();
         }  
     }
