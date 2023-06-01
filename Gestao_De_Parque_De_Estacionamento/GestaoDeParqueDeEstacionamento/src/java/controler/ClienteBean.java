@@ -72,7 +72,7 @@ public class ClienteBean{
         try {
                 this.cCtr.Inserir(cliente);
                 limpar();
-                addMessage("Confirmed", "You have accepted");
+                addMessage("Saved", "Cliente adicionado Com Sucesso");
         } catch (Exception e) {
             
              addMessage("Error", "Impossivel Salvar o Cliente "+e.getMessage());
@@ -82,13 +82,12 @@ public class ClienteBean{
 
     }
     
-    public void remover(){
-        
+    public void remover(){ 
 
         try {
                 this.cCtr.delete(cliente);
                 this.limpar();
-                addMessage("Confirmed", "Record deleted");
+                addMessage("Deleted", "Cliente Removido Com Sucesso");
         } catch (Exception e) {
             
              addMessage("Error", "Impossivel Deletar o Cliente "+e.getMessage());
@@ -100,7 +99,7 @@ public class ClienteBean{
         try {
                 this.cCtr.update(cliente);
                 this.limpar();
-                addMessage("Confirmed", "Record Updated");
+                addMessage("Updated", "Cliente Actualizado Com Sucesso");
         } catch (Exception e) {
             
              addMessage("Error", "Impossivel Actualizar o Cliente "+e.getMessage());
