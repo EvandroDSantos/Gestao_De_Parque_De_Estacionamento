@@ -23,6 +23,10 @@ public class Viatura  implements java.io.Serializable {
 
     public Viatura() {
     }
+    
+    public Viatura(String matricula) {
+        this.matricula = matricula;
+    }
 
 	
     public Viatura(String matricula, Cliente cliente, String marca, String modelo, String cor, String status, Date dataRegisto) {

@@ -18,15 +18,15 @@
                     <p:outputLabel/>
                     <p:outputLabel/>
                     <p:outputLabel value="Nome:"/>
-                    <p:inputText value="#{clienteBean.cliente.nome}"  placeholder="Ex: Abdul" requiredMessage="O Nome é Obrigatório" required="true" style="width: 12rem"/>
+                    <p:inputText value="#{clienteBean.cliente.nome}"  requiredMessage="O Nome é Obrigatório" required="true" style="width: 12rem"/>
                     <p:outputLabel value="Apelido:"/>
-                    <p:inputText value="#{clienteBean.cliente.apelido}" style="width: 12rem" placeholder="Ex: Arnaldo" requiredMessage="O Apelido é Obrigatório" required="true"/>
+                    <p:inputText value="#{clienteBean.cliente.apelido}" style="width: 12rem" requiredMessage="O Apelido é Obrigatório" required="true"/>
                     <p:outputLabel value="Email:"/>
-                    <p:inputText value="#{clienteBean.cliente.email}" size="55" placeholder="Ex: email@dominio.com.br"/>
+                    <p:inputText value="#{clienteBean.cliente.email}" size="55" />
                     <p:outputLabel value="Celular:"/>
-                    <p:inputMask value="#{clienteBean.cliente.contacto}" mask="(+258)99-9999-999" placeholder="Ex: (+258) 84-9999-999" requiredMessage="O Contacto é Obrigatório" required="true"/>
+                    <p:inputMask value="#{clienteBean.cliente.contacto}" mask="(+258)99-9999-999"  requiredMessage="O Contacto é Obrigatório" required="true"/>
                     <p:outputLabel value="Nr do BI:"/>
-                    <p:inputText value="#{clienteBean.cliente.nrDoc}" style="width: 12rem" placeholder="Ex: 110215499452M" maxlength="13" requiredMessage="O Nr do Documento é Obrigatório" required="true"/>
+                    <p:inputText value="#{clienteBean.cliente.nrDoc}" style="width: 12rem"  maxlength="13" requiredMessage="O Nr do Documento é Obrigatório" required="true"/>
                     <p:outputLabel value="Sexo:"/>
                     <p:selectOneRadio id="console" value="#{clienteBean.cliente.sexo}" >
                         <f:selectItem itemLabel="Masculino" itemValue="M"/>

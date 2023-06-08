@@ -23,7 +23,6 @@ import models.Cliente;
 import models.Viatura;
 
 @ManagedBean
-@ViewScoped
 public class ViaturaBean{
     private Viatura viatura;
     private Cliente cliente;

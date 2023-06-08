@@ -9,15 +9,39 @@
              template="forma.xhtml">
 
     <ui:define name="centro">
-        <h:form id="frmCli">
+        <h:form id="frmVi">
             <div class="card">
 
-                 
+                <h:panelGrid id="pEntradaV" columns="4" cellpadding="15">
+                    <h3>Dados da Viatura</h3>
+                    <p:outputLabel/>
+                    <p:outputLabel/>
+                    <p:outputLabel/>
+                    <p:outputLabel value="Marca:"/>
+                    <p:inputText value="#{viaturaBean.viatura.marca}" size="55"/>
+                    <p:outputLabel value="Modelo:"/>
+                    <p:inputText value="#{viaturaBean.viatura.modelo}" size="55"/>
+                    <p:outputLabel value="Matricula:"/>
+                    <p:inputText value="#{viaturaBean.viatura.matricula}" size="55"/>
+                    <p:outputLabel value="Cor"/>
+                    <p:inputText value="#{viaturaBean.viatura.cor}" size="55"/>
+                    <p:outputLabel value="Dados do Cliente"/>
+                    <p:selectOneMenu id="console1" value="#{viaturaBean.cliente.nrDoc}" >
+                        <f:selectItems value="#{viaturaBean.popularCliente}" />
+                    </p:selectOneMenu>
+                    <p:outputLabel value="Status"/>
+                    <p:selectOneRadio id="console" value="#{viaturaBean.viatura.status}">
+                        <f:selectItem itemLabel="Activo" itemValue="Activo"/>
+                        <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
+                    </p:selectOneRadio>	        
+                </h:panelGrid> 
+
+
 
                 <h:panelGrid columns="4" cellpadding="10">
-                    <p:commandButton value="Save"  styleClass="ui-button-raised" icon="pi pi-save"  style="width: 10rem">
+                    <p:commandButton value="Save" update=":frmVi:message1"  styleClass="ui-button-raised" icon="pi pi-save"  style="width: 10rem">
                     </p:commandButton>
-                    <p:commandButton value="Remover"   styleClass="ui-button-raised ui-button-secondary" icon ="pi pi-trash"  style="width: 10rem">
+                    <p:commandButton value="Remover"  styleClass="ui-button-raised ui-button-secondary" icon ="pi pi-trash"  style="width: 10rem">
                         <p:confirm header="Confirmation" message="Are you sure you want to proceed?" icon="pi pi-exclamation-triangle"/>
                     </p:commandButton>
                     <p:commandButton value="Actualizar"   styleClass="ui-button-raised ui-button-success" icon="pi pi-refresh"  style="width: 10rem">
@@ -25,7 +49,7 @@
                     </p:commandButton>
                     <p:commandButton value="Limpar" styleClass="ui-button-raised ui-button-info" icon="pi pi-eraser"  style="width: 10rem"/>
 
-                    <p:growl id="message" showDetail="true"/>
+                    <p:growl id="message1" showDetail="true"/>
 
                     <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
                         <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
@@ -39,7 +63,7 @@
             <div class="card">
                 <p:dataTable id="DTViatura" var="b" value="#{viaturaBean.listaViatura}"
                              selection="#{viaturaBean.viatura}" rowKey="#{b.matricula}"
-                             style="margin-bottom:0" paginator="true" rows="5">
+                             style="margin-bottom:0" paginator="true" paginatorPosition="bottom" rows="5">
                     <p:column style="width:16px;text-align:center"/>
                     <p:column headerText="Marca" sortBy="#{b.marca}" filterBy="#{b.marca}">
                         <h:outputText value="#{b.marca}" />
@@ -70,6 +94,10 @@
                     </p:column>
                     <p:column headerText="Apelido do Cliente" sortBy="#{b.cliente.apelido}" filterBy="#{b.cliente.apelido}">
                         <h:outputText value="#{b.cliente.apelido}" />
+                    </p:column>
+                    
+                    <p:column>
+                        <h1>HG</h1>
                     </p:column>
                 </p:dataTable>
             </div>
