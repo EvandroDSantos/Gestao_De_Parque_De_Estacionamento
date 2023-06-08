@@ -16,13 +16,15 @@
                     <p:growl id="messages"/>
                     
                     <p:menubar>
-                        <p:menuitem value="Menu" icon="pi pi-fw pi-home" action="index"/>
+                        <p:submenu  icon="pi pi-align-justify">
+                        <p:menuitem value="Home" icon="pi pi-fw pi-home" action="index"/>
 
                         <p:menuitem value="Gestão de Cliente" icon="pi pi-fw pi-users" action="cliente"/>
 
                         <p:menuitem value="Gestão de viatura" icon="pi pi-fw pi-car" action="viatura"/>
 
                         <p:menuitem value="Pagamento" icon="pi pi-fw pi-credit-card" action="pagamento"/>
+                        </p:submenu>
 
                     </p:menubar>
                 </h:form>

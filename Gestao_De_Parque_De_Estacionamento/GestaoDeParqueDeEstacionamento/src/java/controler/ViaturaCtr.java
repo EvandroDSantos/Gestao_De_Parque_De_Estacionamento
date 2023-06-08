@@ -19,6 +19,7 @@ import org.hibernate.cfg.Configuration;
  * @author Dos SanTos
  */
 public class ViaturaCtr {
+    
     public void Inserir(Viatura v){
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session sessao = sessionFactory.openSession();
@@ -26,7 +27,7 @@ public class ViaturaCtr {
         
         try {
             tr = sessao.beginTransaction();
-            sessao.saveOrUpdate(v);
+            sessao.save(v);
 
             tr.commit();
         } catch (Exception e) {

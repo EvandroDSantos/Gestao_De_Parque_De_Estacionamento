@@ -1,72 +1,90 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:decorate xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:jsf="http://xmlns.jcp.org/jsf"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-      template="forma.xhtml">
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:f="http://xmlns.jcp.org/jsf/core"
+             xmlns:jsf="http://xmlns.jcp.org/jsf"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:p="http://primefaces.org/ui"
+             template="forma.xhtml">
 
     <ui:define name="centro">
         <h:form>
             <h3>Dados da Viatura</h3>
-            <div class="card">
-                <h:form>
-                    <h:panelGrid columns="4" cellpadding="15">
+                    <h:panelGrid id="pEntradaV" columns="4" cellpadding="15">
                         <p:outputLabel value="Marca:"/>
-                        <p:inputText value="" size="55" placeholder="Ex: Mercedes Benz" />
+                        <p:inputText value="#{viaturaBean.viatura.marca}" size="55"/>
                         <p:outputLabel value="Modelo:"/>
-                        <p:inputText value="" size="55" placeholder="Ex: AMG G63" />
+                        <p:inputText value="#{viaturaBean.viatura.modelo}" size="55"/>
                         <p:outputLabel value="Matricula:"/>
-                        <p:inputText value="" size="55" placeholder=" AQJ 221 MC"/>
+                        <p:inputText value="#{viaturaBean.viatura.matricula}" size="55"/>
                         <p:outputLabel value="Cor"/>
-                        <p:inputText value="" size="55" placeholder="Azul Marinho" />
+                        <p:inputText value="#{viaturaBean.viatura.cor}" size="55"/>
+                        <p:outputLabel value="Dados do Cliente"/>
+                        <p:selectOneMenu id="console1" value="#{viaturaBean.cliente.nrDoc}" >
+                            <f:selectItems value="#{viaturaBean.popularCliente}" />
+                        </p:selectOneMenu>
                         <p:outputLabel value="Status"/>
-                        <p:selectOneRadio id="console" value="#{radioView.console}">
-                        <f:selectItem itemLabel="Activo" itemValue="Option1"/>
-                        <f:selectItem itemLabel="Inactivo" itemValue="Option2"/>
+                        <p:selectOneRadio id="console" value="#{viaturaBean.viatura.status}">
+                            <f:selectItem itemLabel="Activo" itemValue="Activo"/>
+                            <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
                         </p:selectOneRadio>	        
                     </h:panelGrid> 
-                    
+
                     <h:panelGrid columns="4" cellpadding="10">
-                        <p:commandButton value="Save" styleClass="ui-button-raised" icon="pi pi-save"/>
-                        <p:commandButton value="Remover" styleClass="ui-button-raised ui-button-secondary" icon ="pi pi-trash" />
-                        <p:commandButton value="Actualizar" styleClass="ui-button-raised ui-button-success" icon="pi pi-refresh" />
-                        <p:commandButton value="Limpar" styleClass="ui-button-raised ui-button-info" icon="pi pi-eraser" />
+
+                        <p:commandButton value="Save" update=":pEntradaV:message" styleClass="ui-button-raised" actionListener="" icon="pi pi-save" style="width: 10rem"/>
+                        <p:commandButton value="Remover" styleClass="ui-button-raised ui-button-secondary" icon ="pi pi-trash" style="width: 10rem"/>
+                        <p:commandButton value="Actualizar" styleClass="ui-button-raised ui-button-success" icon="pi pi-refresh" style="width: 10rem"/>
+                        <p:commandButton value="Limpar" styleClass="ui-button-raised ui-button-info" icon="pi pi-eraser" style="width: 10rem"/>
+
+                        <p:growl id="message" showDetail="true"/>
+
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+                            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" />
+                        </p:confirmDialog>
                     </h:panelGrid>
-                    
-                </h:form>
+
             </div>
             <div class="card">
-                <p:dataTable id="checkboxDTViatura" var="product" value="#{dtSelectionView.products6}"
-                             selection="#{dtSelectionView.selectedProducts}" rowKey="#{product.id}"
-                             style="margin-bottom:0" paginator="true" rows="5" selectionPageOnly="false">
-                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                <p:dataTable id="DTViatura" var="b" value="#{viaturaBean.listaViatura}"
+                             selection="#{viaturaBean.viatura}" rowKey="#{b.matricula}"
+                             style="margin-bottom:0" paginator="true" rows="5">
+                    <p:column style="width:16px;text-align:center"/>
                     <p:column headerText="Marca">
-                        <h:outputText value="#{product.code}" />
+                        <h:outputText value="#{b.marca}" />
                     </p:column>
 
                     <p:column headerText="Modelo">
-                        <h:outputText value="#{product.name}" />
+                        <h:outputText value="#{b.modelo}" />
                     </p:column>
 
                     <p:column headerText="Matricula">
-                        <h:outputText value="#{product.category}" />
+                        <h:outputText value="#{b.matricula}" />
                     </p:column>
 
                     <p:column headerText="Cor">
-                        <h:outputText value="#{product.quantity}" />
+                        <h:outputText value="#{b.cor}" />
                     </p:column>
                     <p:column headerText="Status">
-                       <h:outputText value="#{product.quantity}" />
+                        <h:outputText value="#{b.status}" />
                     </p:column>
                     <p:column headerText="Data Registo">
-                       <h:outputText value="#{product.quantity}" />
+                        <h:outputText value="#{b.dataRegisto}" />
+                    </p:column>
+                    <p:column headerText="ID Cliente">
+                        <h:outputText value="#{b.cliente.nrDoc}" />
+                    </p:column>
+                    <p:column headerText="Nome do Cliente">
+                        <h:outputText value="#{b.cliente.nome}" />
+                    </p:column>
+                    <p:column headerText="Apelido do Cliente">
+                        <h:outputText value="#{b.cliente.apelido}" />
                     </p:column>
                 </p:dataTable>
             </div>
         </h:form>
     </ui:define>
-        
+
 </ui:decorate>

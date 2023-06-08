@@ -107,6 +107,10 @@ public class ClienteBean{
         }
     }
     
+    public void pesquisar(){
+        
+    }
+    
     public void limpar(){
         this.cliente = new Cliente();
     }

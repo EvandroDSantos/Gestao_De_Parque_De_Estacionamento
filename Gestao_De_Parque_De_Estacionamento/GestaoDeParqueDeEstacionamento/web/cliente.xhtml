@@ -62,35 +62,37 @@
         </h:form>
         <h:form id="frmCliDT">   
             <div class="card">
-                <p:dataTable id="radioDT" var="a" value="#{clienteBean.listaCliente}"
+                <p:dataTable id="radioDT" var="a" widgetVar="dtClientes" reflow="true" value="#{clienteBean.listaCliente}"
                              selection="#{clienteBean.cliente}" rowKey="#{a.nome}"
-                             style="margin-bottom:0" paginator="true" rows="5">
+                             style="margin-bottom:0" paginator="true" paginatorPosition="bottom" rows="5">
                     <p:column style="width:16px;text-align:center"/>
-                        <p:column headerText="Nr do Documento">
+                        
+
+                    <p:column headerText="Nr do Documento" sortBy="#{a.nrDoc}" filterBy="#{a.nrDoc}">
                             <h:outputText value="#{a.nrDoc}" />
                         </p:column>
 
-                        <p:column headerText="Nome">
+                    <p:column headerText="Nome" sortBy="#{a.nome}" filterBy="#{a.nome}">
                             <h:outputText value="#{a.nome}" />
                         </p:column>
 
-                        <p:column headerText="Apelido">
+                        <p:column headerText="Apelido" sortBy="#{a.apelido}" filterBy="#{a.apelido}">
                             <h:outputText value="#{a.apelido}" />
                         </p:column>
 
-                        <p:column headerText="Sexo">
+                        <p:column headerText="Sexo" sortBy="#{a.sexo}" filterBy="#{a.sexo}">
                             <h:outputText value="#{a.sexo}" />
                         </p:column>
                         
-                        <p:column headerText="Contacto">
+                        <p:column headerText="Contacto" sortBy="#{a.contacto}" filterBy="#{a.contacto}">
                             <h:outputText value="#{a.contacto}" />
                         </p:column>
                         
-                        <p:column headerText="Email">
+                        <p:column headerText="Email" sortBy="#{a.email}" filterBy="#{a.email}">
                             <h:outputText value="#{a.email}" />
                         </p:column>
                         
-                        <p:column headerText="Status">
+                        <p:column headerText="Status" sortBy="#{a.status}" filterBy="#{a.status}">
                             <h:outputText value="#{a.status}" />
                         </p:column>
                         
