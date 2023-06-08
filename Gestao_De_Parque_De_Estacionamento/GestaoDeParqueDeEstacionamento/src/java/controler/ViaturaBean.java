@@ -110,12 +110,7 @@ public class ViaturaBean{
     
         //CRUD
     public void cadastro(){
-        //cliente.setNrDoc(viatura.getCliente().getNrDoc());
-        
-        System.out.println("=============VEJA AQUI A MATRICULA"+viatura.getMatricula());
-        
         try {
-          
                 this.vCtr.Inserir(viatura);
                 limpar();
                 addMessage("Saved", "viatura adicionado Com Sucesso");

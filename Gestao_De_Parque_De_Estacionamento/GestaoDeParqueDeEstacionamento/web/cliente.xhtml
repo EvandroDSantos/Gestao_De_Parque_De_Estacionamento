@@ -1,32 +1,32 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:decorate xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:jsf="http://xmlns.jcp.org/jsf"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-      template="forma.xhtml">
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:f="http://xmlns.jcp.org/jsf/core"
+             xmlns:jsf="http://xmlns.jcp.org/jsf"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:p="http://primefaces.org/ui"
+             template="forma.xhtml">
 
     <ui:define name="centro">
         <h:form id="frmCli">
             <div class="card">
-                    
-                    <h:panelGrid id="pEntrada" columns="4" cellpadding="15">
-                        <h3>Dados do Cliente</h3>
-                        <p:outputLabel id="nrBI" value="#{clienteBean.cliente.nrDoc}"/>
-                        <p:outputLabel/>
-                        <p:outputLabel/>
-                        <p:outputLabel value="Nome:"/>
-                        <p:inputText value="#{clienteBean.cliente.nome}"  placeholder="Ex: Abdul" requiredMessage="O Nome é Obrigatório" required="true" style="width: 12rem"/>
-                        <p:outputLabel value="Apelido:"/>
-                        <p:inputText value="#{clienteBean.cliente.apelido}" style="width: 12rem" placeholder="Ex: Arnaldo" requiredMessage="O Apelido é Obrigatório" required="true"/>
-                        <p:outputLabel value="Email:"/>
-                        <p:inputText value="#{clienteBean.cliente.email}" size="55" placeholder="Ex: email@dominio.com.br"/>
-                        <p:outputLabel value="Celular:"/>
-                        <p:inputMask value="#{clienteBean.cliente.contacto}" mask="(+258)99-9999-999" placeholder="Ex: (+258) 84-9999-999" requiredMessage="O Contacto é Obrigatório" required="true"/>
-                        <p:outputLabel value="Nr do BI:"/>
-                        <p:inputText value="#{clienteBean.cliente.nrDoc}" style="width: 12rem" placeholder="Ex: 110215499452M" maxlength="13" requiredMessage="O Nr do Documento é Obrigatório" required="true"/>
+
+                <h:panelGrid id="pEntrada" columns="4" cellpadding="15">
+                    <h3>Dados do Cliente</h3>
+                    <p:outputLabel id="nrBI" value="#{clienteBean.cliente.nrDoc}"/>
+                    <p:outputLabel/>
+                    <p:outputLabel/>
+                    <p:outputLabel value="Nome:"/>
+                    <p:inputText value="#{clienteBean.cliente.nome}"  placeholder="Ex: Abdul" requiredMessage="O Nome é Obrigatório" required="true" style="width: 12rem"/>
+                    <p:outputLabel value="Apelido:"/>
+                    <p:inputText value="#{clienteBean.cliente.apelido}" style="width: 12rem" placeholder="Ex: Arnaldo" requiredMessage="O Apelido é Obrigatório" required="true"/>
+                    <p:outputLabel value="Email:"/>
+                    <p:inputText value="#{clienteBean.cliente.email}" size="55" placeholder="Ex: email@dominio.com.br"/>
+                    <p:outputLabel value="Celular:"/>
+                    <p:inputMask value="#{clienteBean.cliente.contacto}" mask="(+258)99-9999-999" placeholder="Ex: (+258) 84-9999-999" requiredMessage="O Contacto é Obrigatório" required="true"/>
+                    <p:outputLabel value="Nr do BI:"/>
+                    <p:inputText value="#{clienteBean.cliente.nrDoc}" style="width: 12rem" placeholder="Ex: 110215499452M" maxlength="13" requiredMessage="O Nr do Documento é Obrigatório" required="true"/>
                     <p:outputLabel value="Sexo:"/>
                     <p:selectOneRadio id="console" value="#{clienteBean.cliente.sexo}" >
                         <f:selectItem itemLabel="Masculino" itemValue="M"/>
@@ -37,27 +37,27 @@
                         <f:selectItem itemLabel="Activo" itemValue="Activo" transient="true"/>
                         <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
                     </p:selectOneRadio>
-                    </h:panelGrid> 
+                </h:panelGrid> 
 
-                    <h:panelGrid columns="4" cellpadding="10">
-                        <p:commandButton value="Save" update=":frmCli:message :frmCliDT:radioDT :frmCli:pEntrada" styleClass="ui-button-raised" icon="pi pi-save" actionListener="#{clienteBean.cadastro()}" style="width: 10rem">
-                        </p:commandButton>
-                        <p:commandButton value="Remover"  update=":frmCli:message :frmCliDT:radioDT :frmCli:pEntrada" styleClass="ui-button-raised ui-button-secondary" icon ="pi pi-trash" actionListener="#{clienteBean.remover()}" style="width: 10rem">
-                            <p:confirm header="Confirmation" message="Are you sure you want to proceed?" icon="pi pi-exclamation-triangle"/>
-                        </p:commandButton>
-                        <p:commandButton value="Actualizar" update=":frmCli:message :frmCliDT:radioDT :frmCli:pEntrada"  styleClass="ui-button-raised ui-button-success" icon="pi pi-refresh" actionListener="#{clienteBean.update()}" style="width: 10rem">
-                            <p:confirm header="Confirmation" message="Are you sure you want to proceed?" icon="pi pi-exclamation-triangle"/>
-                        </p:commandButton>
-                        <p:commandButton value="Limpar" update=":frmCli:pEntrada" styleClass="ui-button-raised ui-button-info" icon="pi pi-eraser" actionListener="#{clienteBean.limpar()}" style="width: 10rem"/>
-                        
-                        <p:growl id="message" showDetail="true"/>
-                        
-                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
-                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
-                            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" />
-                        </p:confirmDialog>
-                    </h:panelGrid>
-                    
+                <h:panelGrid columns="4" cellpadding="10">
+                    <p:commandButton value="Save" update=":frmCli:message :frmCliDT:radioDT :frmCli:pEntrada" styleClass="ui-button-raised" icon="pi pi-save" actionListener="#{clienteBean.cadastro()}" style="width: 10rem">
+                    </p:commandButton>
+                    <p:commandButton value="Remover"  update=":frmCli:message :frmCliDT:radioDT :frmCli:pEntrada" styleClass="ui-button-raised ui-button-secondary" icon ="pi pi-trash" actionListener="#{clienteBean.remover()}" style="width: 10rem">
+                        <p:confirm header="Confirmation" message="Are you sure you want to proceed?" icon="pi pi-exclamation-triangle"/>
+                    </p:commandButton>
+                    <p:commandButton value="Actualizar" update=":frmCli:message :frmCliDT:radioDT :frmCli:pEntrada"  styleClass="ui-button-raised ui-button-success" icon="pi pi-refresh" actionListener="#{clienteBean.update()}" style="width: 10rem">
+                        <p:confirm header="Confirmation" message="Are you sure you want to proceed?" icon="pi pi-exclamation-triangle"/>
+                    </p:commandButton>
+                    <p:commandButton value="Limpar" update=":frmCli:pEntrada" styleClass="ui-button-raised ui-button-info" icon="pi pi-eraser" actionListener="#{clienteBean.limpar()}" style="width: 10rem"/>
+
+                    <p:growl id="message" showDetail="true"/>
+
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+                        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" />
+                    </p:confirmDialog>
+                </h:panelGrid>
+
             </div>
         </h:form>
         <h:form id="frmCliDT">   
@@ -66,42 +66,42 @@
                              selection="#{clienteBean.cliente}" rowKey="#{a.nome}"
                              style="margin-bottom:0" paginator="true" paginatorPosition="bottom" rows="5">
                     <p:column style="width:16px;text-align:center"/>
-                        
+
 
                     <p:column headerText="Nr do Documento" sortBy="#{a.nrDoc}" filterBy="#{a.nrDoc}">
-                            <h:outputText value="#{a.nrDoc}" />
-                        </p:column>
+                        <h:outputText value="#{a.nrDoc}" />
+                    </p:column>
 
                     <p:column headerText="Nome" sortBy="#{a.nome}" filterBy="#{a.nome}">
-                            <h:outputText value="#{a.nome}" />
-                        </p:column>
+                        <h:outputText value="#{a.nome}" />
+                    </p:column>
 
-                        <p:column headerText="Apelido" sortBy="#{a.apelido}" filterBy="#{a.apelido}">
-                            <h:outputText value="#{a.apelido}" />
-                        </p:column>
+                    <p:column headerText="Apelido" sortBy="#{a.apelido}" filterBy="#{a.apelido}">
+                        <h:outputText value="#{a.apelido}" />
+                    </p:column>
 
-                        <p:column headerText="Sexo" sortBy="#{a.sexo}" filterBy="#{a.sexo}">
-                            <h:outputText value="#{a.sexo}" />
-                        </p:column>
-                        
-                        <p:column headerText="Contacto" sortBy="#{a.contacto}" filterBy="#{a.contacto}">
-                            <h:outputText value="#{a.contacto}" />
-                        </p:column>
-                        
-                        <p:column headerText="Email" sortBy="#{a.email}" filterBy="#{a.email}">
-                            <h:outputText value="#{a.email}" />
-                        </p:column>
-                        
-                        <p:column headerText="Status" sortBy="#{a.status}" filterBy="#{a.status}">
-                            <h:outputText value="#{a.status}" />
-                        </p:column>
-                        
-                        <p:column>
-                            <p:commandButton id="ajax" update=":frmCli:pEntrada" styleClass="ui-button-raised" icon="pi pi-pencil" actionListener="#{clienteBean.limpar()}" >
-                                <f:setPropertyActionListener value="#{a}" target="#{clienteBean.cliente}"/>
-                            </p:commandButton>
-                        </p:column>
-                    </p:dataTable>
+                    <p:column headerText="Sexo" sortBy="#{a.sexo}" filterBy="#{a.sexo}">
+                        <h:outputText value="#{a.sexo}" />
+                    </p:column>
+
+                    <p:column headerText="Contacto" sortBy="#{a.contacto}" filterBy="#{a.contacto}">
+                        <h:outputText value="#{a.contacto}" />
+                    </p:column>
+
+                    <p:column headerText="Email" sortBy="#{a.email}" filterBy="#{a.email}">
+                        <h:outputText value="#{a.email}" />
+                    </p:column>
+
+                    <p:column headerText="Status" sortBy="#{a.status}" filterBy="#{a.status}">
+                        <h:outputText value="#{a.status}" />
+                    </p:column>
+
+                    <p:column>
+                        <p:commandButton id="ajax" update=":frmCli:pEntrada" styleClass="ui-button-raised" icon="pi pi-pencil" actionListener="#{clienteBean.limpar()}" >
+                            <f:setPropertyActionListener value="#{a}" target="#{clienteBean.cliente}"/>
+                        </p:commandButton>
+                    </p:column>
+                </p:dataTable>
             </div>
         </h:form>
     </ui:define>
